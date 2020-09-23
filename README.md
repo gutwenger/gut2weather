@@ -26,7 +26,7 @@ Open Weather (https://openweathermap.org/) is the source used to obtain weather 
 ## Programming Languages, Framework and Libraries Used
 * Programming Languages: Python, Javascript
 * Framework: Django
-* Libraries: React.js, react-expand-animated, Unidecode
+* Libraries: React.js, react-expand-animated, Unidecode, Font Awesome
 
 
 ## Difficulties
@@ -41,3 +41,8 @@ There are 3 main difficulties experienced during the development.
 
 * **Temperature Measurements**:
 > Since the API from Open Weather returns temperature in Kelvin Scale, and this application was intended to show temperature in Celcius Scale, a reusable JavaScript programme named "tempConverter.js" was written to cater for this purpose. This programme is able to convert temperature from and to any of the three temperature scales ("Kelvin", "Celcius" and "Fahrenheit").
+
+
+## Responsive Design:
+
+This application can be viewed on both laptop and mobile devices.

@@ -23,11 +23,11 @@ If you wish to look for weather conditions of other cities, simply click the ret
 Open Weather (https://openweathermap.org/) is the source used to obtain weather information.
 
 
-## Programming Languages, Framework and Libraries Used
+## Programming Languages, Framework, Libraries and Extensions Used
 * Programming Languages: Python, Javascript
 * Framework: Django
 * Libraries: React.js, react-expand-animated, Unidecode, Font Awesome
-
+* Extensions: Sass
 
 ## Difficulties
 

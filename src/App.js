@@ -29,15 +29,6 @@ class App extends React.Component {
     this.displayPage("home");
   };
 
-  componentDidUpdate(prevState) {
-    if(this.state !== prevState) {
-      // Geodata loading complete
-      if (this.state.geodata.isLoading === false) {
-        this.printState();
-      }
-    }
-  }
-
   // Function to get CSRF token
   getCookie = (name) => {
     let cookieValue = null;
@@ -113,11 +104,7 @@ class App extends React.Component {
         isLoading: true,
       }
     });
-  };
-
-  printState = () => {
-    console.log(this.state.geodata);
-  };
+  };  
 
   // Function to return value if successfully obtain geodata
   getGeoDataSuccess = (pos) => {
@@ -168,6 +155,7 @@ class App extends React.Component {
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${API_KEY}`)
     .then(response => response.json())
     .then(result => {
+      console.log(result);
       this.setState({
         isLoading: false,
         cityname: cityname,

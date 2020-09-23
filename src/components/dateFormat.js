@@ -5,6 +5,7 @@ function dateFormat(output=String, input=Number, timezone_offset=Number) {
         "full_date", // 21 September 2020
         "month_year", // September 2020
         "weekday", // Sunday
+        "HH", // 18 
         "HH:MM", // 18:20
         "HH:MM:SS", // 18:20:55
         "H:MM_APM", // 6:20pm

@@ -1,9 +1,10 @@
 import React from 'react';
 import Result from './Result';
+import dateFormat from './dateFormat';
 
 function Main(props) {
     let cityname = props.city ? true : false;
-    let dayNight = (props.result.current.dt > props.result.current.sunrise)
+    let dayNight = (dateFormat("HH", props.result.current.dt) > dateFormat("HH", props.result.current.sunrise))
         ? "day"
         : "night";
     let backgroundTime = {
@@ -82,7 +83,6 @@ function Main(props) {
     // ClassName
     //let backgroundClassName = '';
     let backgroundClassName = backgroundTheme[backgroundTime.time][backgroundTime.condition];
-    console.log("BACKGROUND: ", backgroundClassName);
 
     return(
         <div id="main" className="main">

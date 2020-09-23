@@ -7,10 +7,18 @@ function Main(props) {
     let nowTime = parseInt(dateFormat("HHMM", props.result.current.dt, props.result.timezone_offset));
     let sunrise = parseInt(dateFormat("HHMM", props.result.current.sunrise, props.result.timezone_offset));
     let sunset = parseInt(dateFormat("HHMM", props.result.current.sunset, props.result.timezone_offset));
-    console.log(nowTime, sunrise, sunset);
-    let dayNight = (nowTime < sunset)
+    let dayNight;
+
+    if (nowTime < 12) {
+        dayNight = nowTime > sunrise
         ? "day"
         : "night";
+    } else {
+        dayNight = nowTime > sunset
+        ? "day"
+        : "night";
+    };
+
     let backgroundTime = {
         time: dayNight,
         condition: props.result.current.weather[0].main,

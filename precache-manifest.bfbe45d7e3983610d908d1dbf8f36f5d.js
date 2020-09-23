@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "99d411d3b69661c3dd1dcadc95cc033d",
+    "revision": "f74301ca4489a572b31bb4e1dbddbcf4",
     "url": "/gut2weather/index.html"
   },
   {
-    "revision": "6c10ec50fa64bfb54e5c",
+    "revision": "50cc8eff7da052a2df08",
     "url": "/gut2weather/static/css/main.3bf5b1f0.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gut2weather/static/js/2.141c5e27.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6c10ec50fa64bfb54e5c",
-    "url": "/gut2weather/static/js/main.5b3ca549.chunk.js"
+    "revision": "50cc8eff7da052a2df08",
+    "url": "/gut2weather/static/js/main.ef10ae09.chunk.js"
   },
   {
     "revision": "36dde87e3d918a308ca6",

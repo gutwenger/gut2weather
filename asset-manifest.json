@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/gut2weather/static/css/main.3bf5b1f0.chunk.css",
-    "main.js": "/gut2weather/static/js/main.50873d3f.chunk.js",
-    "main.js.map": "/gut2weather/static/js/main.50873d3f.chunk.js.map",
+    "main.js": "/gut2weather/static/js/main.5b3ca549.chunk.js",
+    "main.js.map": "/gut2weather/static/js/main.5b3ca549.chunk.js.map",
     "runtime-main.js": "/gut2weather/static/js/runtime-main.13ef919c.js",
     "runtime-main.js.map": "/gut2weather/static/js/runtime-main.13ef919c.js.map",
     "static/js/2.141c5e27.chunk.js": "/gut2weather/static/js/2.141c5e27.chunk.js",
     "static/js/2.141c5e27.chunk.js.map": "/gut2weather/static/js/2.141c5e27.chunk.js.map",
     "index.html": "/gut2weather/index.html",
-    "precache-manifest.8f09a696d96b4d5648875b9287fc7cd9.js": "/gut2weather/precache-manifest.8f09a696d96b4d5648875b9287fc7cd9.js",
+    "precache-manifest.4f73ba718cd5e84669794c4dacd9e0a0.js": "/gut2weather/precache-manifest.4f73ba718cd5e84669794c4dacd9e0a0.js",
     "service-worker.js": "/gut2weather/service-worker.js",
     "static/css/main.3bf5b1f0.chunk.css.map": "/gut2weather/static/css/main.3bf5b1f0.chunk.css.map",
     "static/js/2.141c5e27.chunk.js.LICENSE.txt": "/gut2weather/static/js/2.141c5e27.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.13ef919c.js",
     "static/js/2.141c5e27.chunk.js",
     "static/css/main.3bf5b1f0.chunk.css",
-    "static/js/main.50873d3f.chunk.js"
+    "static/js/main.5b3ca549.chunk.js"
   ]
 }

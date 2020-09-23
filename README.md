@@ -15,7 +15,7 @@ In the landing page there are two buttons.
 
 After choosing one of the many results, another page containing current weather conditions and weather forecast will be shown.
 
-If you wish to look for weather conditions of other cities, simply click the return button on the top left corner.
+If you wish to look for weather conditions of other cities, simply click the return button on the top left corner and start the enquiry again.
 
 
 ## Source

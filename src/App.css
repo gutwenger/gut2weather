@@ -1,38 +1,826 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #cdb588 0%, #6da1b1 50%, #097679 100%);
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.home {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 750px;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #FFFFFF55;
+}
+.home .homeLogo {
+  box-sizing: border-box;
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
+  padding: 10px 30px;
+}
+.home .homeLogo .homeLogoH1 {
+  font-size: 50px;
+  font-weight: 150;
+  letter-spacing: -2px;
+}
+.home .homeSelect {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+}
+.home .homeSelect .homeSelectMethod {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 350px;
+  margin: auto;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.home .homeSelect .homeSelectMethod .homeSelectMethodOption {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 160px;
+  margin: 10px 0;
+  padding: 7px 15px;
+  border-radius: 50px;
+  background-color: #ff006f88;
   color: white;
+  font-weight: 250;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.home .homeSelect .homeSelectMethod .homeSelectMethodOption:hover {
+  background-color: #80ffdb;
+  color: black;
+  transition: 0.5s;
 }
 
-.App-link {
-  color: #61dafb;
+.homeSelectSearchCity {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.homeSelectSearchCity .homeSelectSearchCityForm {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.homeSelectSearchCity .homeSelectSearchCityForm .searchCityField {
+  box-sizing: border-box;
+  height: 35px;
+  width: 350px;
+  border-radius: 100px;
+  border: 1px solid white;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  transition: 0.5s;
+}
+.homeSelectSearchCity .homeSelectSearchCityForm .searchCityField input {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 20px;
+  font-weight: 150;
+  letter-spacing: -1px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.homeSelectSearchCity .homeSelectSearchCityForm .searchCityField input::placeholder {
+  font-size: 15px;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+}
+.homeSelectSearchCity .homeSelectSearchCityForm .searchCityField button {
+  border: none;
+  background-color: transparent;
+  font-size: 17px;
+  color: white;
+  transition: 0.5s;
+  outline: none;
+  cursor: pointer;
+}
+.homeSelectSearchCity .homeSelectSearchCityForm .searchCityField:focus-within, .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField:hover {
+  background-color: #FFFFFF33;
+  transition: 0.5s;
+}
+.homeSelectSearchCity .homeSelectSearchCityForm .searchCityField:focus-within button:hover, .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField:hover button:hover {
+  font-size: 20px;
+  color: #ff006f;
+  transition: 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
+.homeResultLoading {
+  box-sizing: border-box;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homeResultLoading i {
+  font-size: 25px;
+  animation: spin 1s infinite;
+}
+
+.homeResultError {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+}
+.homeResultError .homeResultErrorCon {
+  box-sizing: border-box;
+  height: 35px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0px 20px;
+  border-radius: 50px;
+  background: linear-gradient(141deg, #a850a0 0%, #ff006f 50%, #a850a0 100%);
+  font-size: 18px;
+  font-weight: 250;
+  letter-spacing: -0.5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeResultContainer {
+  box-sizing: border-box;
+  height: fit-content;
+  max-height: 300px;
+  width: 100%;
+  padding: 5px 30px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+.homeResultContainer .cityResult {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: linear-gradient(160deg, rgba(238, 174, 202, 0.3) 0%, rgba(148, 187, 233, 0.3) 98%);
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.homeResultContainer .cityResult .cityResultInfo {
+  box-sizing: border-box;
+}
+.homeResultContainer .cityResult .cityResultInfo .cityResultInfoH1 {
+  font-size: 25px;
+  font-weight: 300;
+  color: #003049;
+  letter-spacing: -1px;
+}
+.homeResultContainer .cityResult .cityResultInfo .cityResultInfoH1 .cityResultCountry {
+  font-size: 20px;
+}
+.homeResultContainer .cityResult .cityResultInfo .cityResultCoord {
+  box-sizing: border-box;
+  display: flex;
+}
+.homeResultContainer .cityResult .cityResultInfo .cityResultCoord .cityResultLat, .homeResultContainer .cityResult .cityResultInfo .cityResultCoord .cityResultLon {
+  font-size: 13px;
+  font-weight: 250;
+  color: black;
+}
+.homeResultContainer .cityResult .cityResultInfo .cityResultCoord .cityResultLon {
+  margin-left: 15px;
+}
+.homeResultContainer .cityResult .cityResultInspect {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: #03071e;
+}
+.homeResultContainer .cityResult:hover {
+  background: linear-gradient(160deg, #94bbe9 0%, #eeaeca 98%);
+  transition: 0.5s;
+}
+
+.homeResultContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.hourly {
+  box-sizing: border-box;
+  padding: 10px;
+  height: 103px;
+  width: 100%;
+  border-bottom: 1px solid #FFFFFF55;
+  overflow-y: scroll;
+  display: flex;
+}
+.hourly .hourlyItem {
+  box-sizing: border-box;
+  height: 80px;
+  min-width: 60px;
+  margin-left: 5px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.hourly .hourlyItem .hourlyItemTime {
+  font-weight: 300;
+}
+
+.hourly::-webkit-scrollbar {
+  display: none;
+}
+
+.daily {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+}
+.daily .dailyItem {
+  box-sizing: border-box;
+  height: 38px;
+  color: white;
+  display: grid;
+  grid-template-columns: 150px 1fr 150px;
+  align-items: center;
+}
+.daily .dailyItem .dailyItemWeekday {
+  font-size: 25px;
+  font-weight: 200;
+}
+.daily .dailyItem .dailyItemIcon {
+  text-align: center;
+  font-size: 25px;
+}
+.daily .dailyItem .dailyItemHighLow {
+  box-sizing: border-box;
+  font-size: 25px;
+  font-weight: 200;
+  display: flex;
+  justify-content: space-around;
+}
+
+.main {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 750px;
+  border-radius: 30px;
+  background-color: #00000033;
+  padding: 20px;
+}
+.main .background {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.main .background-clear-sunny {
+  background: linear-gradient(135deg, #00ffef 0%, #00b9ff 100%);
+}
+.main .background-cloud {
+  background: linear-gradient(170deg, #b9b9b9 0%, #6b6b6b 38%, #6b6b6b 100%);
+}
+.main .background-rain {
+  background: linear-gradient(170deg, #b9b9b9 0%, #6b6b6b 38%, #6b6b6b 100%);
+}
+.main .background-clear-night {
+  background: linear-gradient(150deg, #131e46 0%, #030813 70%, #030813 100%);
+}
+.main .background-cloud-night {
+  background: linear-gradient(150deg, #1e1e1e 0%, #00070d 80%, #00070d 100%);
+}
+.main .background-rain-night {
+  background: linear-gradient(150deg, #1e1e1e 0%, #00070d 80%, #00070d 100%);
+}
+.main .background-rain-drop {
+  background: linear-gradient(170deg, #b9b9b9 0%, #6b6b6b 38%, #6b6b6b 100%);
+  width: 1px;
+  height: 89px;
+  margin-top: 0;
+  position: absolute;
+  bottom: 200px;
+  animation: fall 0.63s linear infinite;
+  -webkit-animation: fall 0.63s linear infinite;
+  -moz-animation: fall 0.63s linear infinite;
+}
+.main .background-rain-drop-night {
+  background: linear-gradient(170deg, #313131 0%, #202020 38%, #272727 100%);
+  width: 1px;
+  height: 89px;
+  margin-top: 0;
+  position: absolute;
+  bottom: 200px;
+  animation: fall 0.63s linear infinite;
+  -webkit-animation: fall 0.63s linear infinite;
+  -moz-animation: fall 0.63s linear infinite;
+}
+.main .background-night-star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: starMove linear infinite;
+}
+
+.mainNav {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.mainNav .mainBtnHome {
+  position: absolute;
+  box-sizing: border-box;
+  height: 50px;
+  width: 50px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: 3px solid #FFFFFF;
+  cursor: pointer;
+}
+.mainNav .mainBtnHome i {
+  font-size: 25px;
+  color: #FFFFFF;
+}
+.mainNav .mainLocation h1 {
+  font-size: 50px;
+  font-weight: 200;
+  color: white;
+  letter-spacing: -2px;
+}
+.mainNav .mainLocation h1 span {
+  font-size: 20px;
+}
+.mainNav .mainBtnHome:hover {
+  animation: spin 1s infinite;
+  animation-direction: reverse;
+}
+
+.result {
+  box-sizing: border-box;
+  height: fit-content;
+  max-height: 500px;
+  width: 100%;
+  padding: 10px 0;
+  overflow-y: scroll;
+}
+.result .summary {
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+  margin: 10px 0;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "icon current highlow";
+}
+.result .summary .summaryIcon {
+  grid-area: icon;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.result .summary .summaryIcon .summaryIconIcon {
+  font-size: 100px;
+}
+.result .summary .summaryIcon .summaryIconDescription {
+  font-size: 20px;
+  font-weight: 200;
+  margin: 5px;
+  text-transform: capitalize;
+}
+.result .summary .summaryTemp {
+  grid-area: current;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result .summary .summaryTemp .summaryCurrentTemp {
+  text-align: center;
+  font-size: 130px;
+  font-weight: 200;
+  letter-spacing: -5px;
+}
+.result .summary .summaryHighLow {
+  grid-area: highlow;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.result .summary .summaryHighLow .summaryHighLowItem {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+.result .summary .summaryHighLow .summaryHighLowItem i {
+  font-size: 25px;
+}
+.result .summary .summaryHighLow .summaryHighLowItem .summaryHighLowTemp {
+  font-size: 30px;
+  font-weight: 200;
+  letter-spacing: -2px;
+  margin-left: 5px;
+}
+.result .details {
+  box-sizing: border-box;
+  height: 130px;
+  width: 100%;
+  border-top: 1px solid #FFFFFF55;
+  border-bottom: 1px solid #FFFFFF55;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result .details .detailsItem {
+  box-sizing: border-box;
+  height: 100px;
+  width: 100px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.result .details .detailsItem .detailsItemIcon {
+  font-size: 25px;
+  margin: 5px 0;
+}
+.result .details .detailsItem .detailsItemLabel {
+  font-size: 15px;
+  font-weight: 250;
+  letter-spacing: -0.5px;
+}
+.result .details .detailsItem .detailsItemData {
+  font-size: 20px;
+  font-weight: 250;
+  letter-spacing: -0.5px;
+}
+
+.result::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
+@keyframes fall {
+  to {
+    margin-top: 900px;
+  }
+}
+@-webkit-keyframes fall {
+  to {
+    margin-top: 900px;
+  }
+}
+@-moz-keyframes fall {
+  to {
+    margin-top: 900px;
+  }
+}
+@keyframes starMove {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+}
+@media only screen and (max-width: 800px) {
+  .body {
+    display: flex;
+    align-items: center;
+  }
+
+  .app {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  .home {
+    width: 350px;
+    transition: 0.5s;
+  }
+  .home .homeSelect {
+    width: 100%;
+  }
+  .home .homeSelect .homeSelectMethod {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .homeSelectSearchCity {
+    box-sizing: border-box;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .homeSelectSearchCity .homeSelectSearchCityForm {
+    box-sizing: border-box;
+    height: fit-content;
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField {
+    box-sizing: border-box;
+    height: 35px;
+    width: 300px;
+    border-radius: 100px;
+    border: 1px solid white;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    transition: 0.5s;
+  }
+  .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField input {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 20px;
+    font-weight: 150;
+    letter-spacing: -1px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField input::placeholder {
+    font-size: 15px;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+  }
+  .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField button {
+    border: none;
+    background-color: transparent;
+    font-size: 17px;
+    color: white;
+    transition: 0.5s;
+    outline: none;
+    cursor: pointer;
+  }
+  .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField:focus-within, .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField:hover {
+    background-color: #FFFFFF33;
+    transition: 0.5s;
+  }
+  .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField:focus-within button:hover, .homeSelectSearchCity .homeSelectSearchCityForm .searchCityField:hover button:hover {
+    font-size: 20px;
+    color: #ff006f;
+    transition: 0.5s;
+  }
+
+  .homeResultError .homeResultErrorCon {
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .main {
+    box-sizing: border-box;
+    height: 80vh;
+    width: 95vw;
+    border-radius: 30px;
+    background-color: #00000033;
+    padding: 20px;
+  }
+
+  .mainNav .mainBtnHome {
+    height: 35px;
+    width: 35px;
+    border: 2px solid #FFFFFF;
+  }
+  .mainNav .mainBtnHome i {
+    font-size: 20px;
+  }
+  .mainNav .mainLocation h1 {
+    font-size: 25px;
+    font-weight: 250;
+    color: white;
+    letter-spacing: -1px;
+  }
+
+  .result {
+    box-sizing: border-box;
+    height: fit-content;
+    max-height: 95%;
+    width: 100%;
+    padding: 10px 0;
+    overflow-y: scroll;
+  }
+  .result .summary {
+    box-sizing: border-box;
+    height: fit-content;
+    width: 100%;
+    margin: 10px 0;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "current icon" "current highlow";
+  }
+  .result .summary .summaryIcon {
+    grid-area: icon;
+    box-sizing: border-box;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .result .summary .summaryIcon .summaryIconIcon {
+    font-size: 35px;
+  }
+  .result .summary .summaryIcon .summaryIconDescription {
+    font-size: 20px;
+    font-weight: 200;
+    margin: 5px;
+    text-transform: capitalize;
+  }
+  .result .summary .summaryTemp {
+    grid-area: current;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .result .summary .summaryTemp .summaryCurrentTemp {
+    text-align: center;
+    font-size: 130px;
+    font-weight: 200;
+    letter-spacing: -5px;
+  }
+  .result .summary .summaryHighLow {
+    grid-area: highlow;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .result .summary .summaryHighLow .summaryHighLowItem {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+  }
+  .result .summary .summaryHighLow .summaryHighLowItem i {
+    font-size: 20px;
+  }
+  .result .summary .summaryHighLow .summaryHighLowItem .summaryHighLowTemp {
+    font-size: 25px;
+    font-weight: 200;
+    letter-spacing: -2px;
+    margin-left: 5px;
+  }
+  .result .details {
+    box-sizing: border-box;
+    height: 225px;
+    width: 100%;
+    border-top: 1px solid #FFFFFF55;
+    border-bottom: 1px solid #FFFFFF55;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .result .details .detailsItem {
+    box-sizing: border-box;
+    height: 90px;
+    width: 90px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .result .details .detailsItem .detailsItemIcon {
+    font-size: 25px;
+    margin: 5px 0;
+  }
+  .result .details .detailsItem .detailsItemLabel {
+    font-size: 15px;
+    font-weight: 250;
+    letter-spacing: -0.5px;
+  }
+  .result .details .detailsItem .detailsItemData {
+    font-size: 20px;
+    font-weight: 250;
+    letter-spacing: -0.5px;
+  }
+
+  .daily {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+  }
+  .daily .dailyItem {
+    box-sizing: border-box;
+    height: 35px;
+    color: white;
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    align-items: center;
+  }
+  .daily .dailyItem .dailyItemWeekday {
+    font-size: 20px;
+    font-weight: 200;
+  }
+  .daily .dailyItem .dailyItemIcon {
+    text-align: center;
+    font-size: 20px;
+  }
+  .daily .dailyItem .dailyItemHighLow {
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: 200;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+/*# sourceMappingURL=App.css.map */

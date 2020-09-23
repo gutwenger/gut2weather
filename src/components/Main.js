@@ -4,7 +4,11 @@ import dateFormat from './dateFormat';
 
 function Main(props) {
     let cityname = props.city ? true : false;
-    let dayNight = (dateFormat("HH", props.result.current.dt) > dateFormat("HH", props.result.current.sunrise))
+    let nowTime = parseInt(dateFormat("HHMM", props.result.current.dt, props.result.timezone_offset));
+    let sunrise = parseInt(dateFormat("HHMM", props.result.current.sunrise, props.result.timezone_offset));
+    let sunset = parseInt(dateFormat("HHMM", props.result.current.sunset, props.result.timezone_offset));
+    console.log(nowTime, sunrise, sunset);
+    let dayNight = (nowTime < sunset)
         ? "day"
         : "night";
     let backgroundTime = {

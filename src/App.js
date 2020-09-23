@@ -155,7 +155,6 @@ class App extends React.Component {
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${part}&appid=${API_KEY}`)
     .then(response => response.json())
     .then(result => {
-      console.log(result);
       this.setState({
         isLoading: false,
         cityname: cityname,
